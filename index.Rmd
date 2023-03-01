@@ -5,82 +5,43 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+In this report I have used a data set from the Seattle Public Library that has checkout information from the year 2017 to the year 2023. For my report, I have emphasized on the checkout data from 2020 in particular. This is because, this was the year in which we came into the coronavirus pandemic and everything in the world stopped. I was interested to see how the operations in a public library like Seattle's went about.
 
 ### Summary Information
+``````{r, echo = FALSE, code = readLines("summary.R")}
+```
+Some of the observations made by analyzing the data for the year 2020 have been discussed here.
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+In 2020, the world discovered about the coronavirus and it's ability to spread rapidly. Soon people started wearing gloves and masks to prevent exposure and physical contact became less prevalent. This trend made an impact on the checkouts at the Seattle Public Library.
+Digital materials were being used more than the traditional physical materials. This can be seen in the difference between the digtal checkouts versus the physical checkouts. The data shows there were `r difference_2020` more digital materials checked out than the physical ones. The same number for the year 2017 is `r difference_2017`. The negative here shows that the number of digital copies checked out were less.
+Similarly, the two media types that were most commonly checked out in 2020 were `r first_media` and `r second_media`. Both of these are digital and this validates the trends seen above.
+Another thing I discovered from the data was the number of checkouts became less as the year progressed. The month `r max_month` (January) had the maximum checkouts. This was a time until which the effect of covid were minimal. On the other hand, month `r min_month` (April) has the least amount of checkouts. This was when the pandemic was at its peak.
+This analysis of the year 2020, made me curious about which item and which creator was the most checked out. The most checked out item was `r top_title` which is an `r top_title_type`. An audiobook being the most checked out did not surprise me and further validated my analysis. On another hand, the most checked out creator was `r top_creator`.
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
-
+This data was collected by the Seattle Public Library and was published on their website from where the file was downloaded. There are 12 parameters of the data - Usage Class of the checked out item, checkout type, the type of material checked out, check out year, check out month, number of checkouts, title of the checked out item, ISBN, creator of the item, subjects to which the item belongs, publisher, and the publication year. The data was created from the database of the Seattle Public Library and was put onto their website. From there, I downloaded the dataset onto my device. The data could have collected to keep track of the checkouts in the Seattle Public Library. I do not think there would be any ethical concerns associated with this data as it does not have information of the user or the customer that is checking the item out. The only limitation with this data is it's lack of most recent data which makes it hard to compare the trends in 2023 with other years.
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The first chart compares the four most checked out materials from years 2017-2022. We didn't take 2023 into consideration as there wasn't enough data there. The trends on these graphs show how all the materials get less popular in the year 2020. Every material category except the EBOOK and the AUDIOBOOK has had a decline and understandably so. This graph compares these materials and shows how due to a pandemic the preferred matierals changed drastically and contactless ones have taken over the more traditional physical ones. Earlier Books and VideoDisks were unmatched but they now have been taken over.
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, warning = FALSE, code = readLines("chart_one.R")}
 ```
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The second chart is a column chart and compares the digital and physical media over the years. Here, we see a surprising trend. We see that the digital media were more common even before the pandemic had started. Due to the pandemic the gap between the two furthered became bigger. Something that can probably explain this result could be the ease of checking out a digital element provides over a physical one.
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, code = readLines("chart_two.R")}
 ```
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+For the third chart, I went ahead with a bar chart comparing the most popular digital/physical books in the dataset. The most popular meaning the most checked out ones. Here again as a surprise we see four out of five books being digital but this validates the second graph and the ease of checking out could explain this. "Educated: a Memoir" is a book that is popular both as a digital and a physical copy.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, code = readLines("graph-three.R")}
 ```
 
 
