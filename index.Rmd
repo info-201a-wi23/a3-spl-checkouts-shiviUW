@@ -5,10 +5,12 @@ output: html_document
 
 ### Introduction
 
-In this report I have used a data set from the Seattle Public Library that has checkout information from the year 2017 to the year 2023. For my report, I have emphasized on the checkout data from 2020 in particular. This is because, this was the year in which we came into the coronavirus pandemic and everything in the world stopped. I was interested to see how the operations in a public library like Seattle's went about.
+In this report I have used a data set from the Seattle Public Library that has checkout information from the year 2017 to the year 2023. Using that data, I have analyzed the checkout trends for the library in that time period and seen the most popular books, checkout categories, and media. A lot of the emphasis of my report is on the year of 2020, when the world was in a state of pandemic and there was terror and uncertainty all around.
+The reason for me analyzing these trends and topics is because I feel libraries, especially public libraries, are a great representative of the society and what all is going on with it. It's checkout trends reflect a lot about what is happening in the world. For example, we can take the year 2020 as an example. We can see the trends then represent something unusual, because of the amount of change that took place. Being a \"special\" year, it has gotten some special attention and mention in the report.
+Now, let's find out these trends.
 
 ### Summary Information
-``````{r, echo = FALSE, code = readLines("summary.R")}
+``````{r, echo = FALSE, code = readLines("summary.R"), include = FALSE}
 ```
 Some of the observations made by analyzing the data for the year 2020 have been discussed here.
 
@@ -21,27 +23,52 @@ This analysis of the year 2020, made me curious about which item and which creat
 
 ### The Dataset
 
-This data was collected by the Seattle Public Library and was published on their website from where the file was downloaded. There are 12 parameters of the data - Usage Class of the checked out item, checkout type, the type of material checked out, check out year, check out month, number of checkouts, title of the checked out item, ISBN, creator of the item, subjects to which the item belongs, publisher, and the publication year. The data was created from the database of the Seattle Public Library and was put onto their website. From there, I downloaded the dataset onto my device. The data could have collected to keep track of the checkouts in the Seattle Public Library. I do not think there would be any ethical concerns associated with this data as it does not have information of the user or the customer that is checking the item out. The only limitation with this data is it's lack of most recent data which makes it hard to compare the trends in 2023 with other years.
+The data set contains information on checkouts in the Seattle Public Library from 2017-2023.
+
+* This data has been collected by the City of Seattle and has been published on their website, "Seattle Open Data", which is open to the public and a user can find, analyze, and download data published by City departments.
+* The data set contains twelve features:
+  * Usage class (this is if the checked out item is physical or digital)
+  * Checkout type
+  * Material type (this defines the category of the item like - book, e-book, audiobook, etc.)
+  * Checkout year
+  * Checkout month
+  * Number of checkouts
+  * Title of the item
+  * ISBN (it is the International Book Standard Number which is unique for every book)
+  * Creator of the item
+  * Subjects associated with it
+  * Publisher
+  * Publication year
+* Among these features there are 816354 observations, each of one of which is associated with a single checked out item.
+* This data set has been collected by the Seattle Public Library with the help of their check-out records that have been maintained since 2005.
+* This data set is collected and made public by the City of Seattle for increasing life quality of their residents. By doing this, they hope to increase transparency, accountability, and comparability. They also hope to promote economic development and research.
+* The questions of power or ethical questions associated with this data could be that of the privacy of the users of Seattle Public Library. Since this data is open to the public if the personal information of those checking out is present in the data set, it could raise huge privacy concerns. Luckily, the data doesn't have any information whatsoever of those checking out. Additionally, it is also important that the consent of the users has been taken before collecting and making the data public.
+* The possible limitations associated with this data set could be the time frame for which it was recorded and the size of the data set. The information in the data set is very limited with respect to the records on the Seattle Public Library and for an analysis that requires data of a longer time frame, it would be useless. Additionally, the size of the data set was too big in comparison to average data set which consumes more time of the user.
 
 ### First Trends Over Time Chart
 
 The first chart compares the four most checked out materials from years 2017-2022. We didn't take 2023 into consideration as there wasn't enough data there. The trends on these graphs show how all the materials get less popular in the year 2020. Every material category except the EBOOK and the AUDIOBOOK has had a decline and understandably so. This graph compares these materials and shows how due to a pandemic the preferred matierals changed drastically and contactless ones have taken over the more traditional physical ones. Earlier Books and VideoDisks were unmatched but they now have been taken over.
+The reason I chose to make this graph was to compare the different types of media and their rental trends over the years. We are living in a time where technology is growing every single day and so digital media like Ebooks and Audiobooks are becoming better and more accessible. In addition to that, I thought 2020 would make the data more interesting by tipping the scales heavily in the direction of digital media, so wanted to see its impact.
 
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart_one.R")}
+``````{r, echo = FALSE, warning = FALSE, code = readLines("chart_one.R"), message = FALSE}
 ```
 
 ### Second Trends Over Time Chart
 
-The second chart is a column chart and compares the digital and physical media over the years. Here, we see a surprising trend. We see that the digital media were more common even before the pandemic had started. Due to the pandemic the gap between the two furthered became bigger. Something that can probably explain this result could be the ease of checking out a digital element provides over a physical one.
+The second chart is a line chart that compares digital and physical media over the years. Here, we see the changing trends over the years. The more traditional physical media is being checked out way more than the newer digital media in the early part of the comparison. Somewhere in 2019, we see a shift in dominance from physical to digital media.
+This graph is important and the reason why I have included it in this report, because it shows two important trends in the Seattle Public Library check outs that correspond with the rest of the world. The first is, of course, the coronavirus and how people stopped checking out physical media for some time. But even before the years of the corona, we see a rise in digital media check outs. It also points to the fast pace at which technology was improving in the world and hence digital media was becoming more accessible and reliable.
+This chart is consistent with other trends we have noticed in the report.
 
-``````{r, echo = FALSE, code = readLines("chart_two.R")}
+``````{r, echo = FALSE, code = readLines("chart_two.R"), warning = FALSE, message = FALSE}
 ```
 
 ### Your Choice
 
-For the third chart, I went ahead with a bar chart comparing the most popular digital/physical books in the dataset. The most popular meaning the most checked out ones. Here again as a surprise we see four out of five books being digital but this validates the second graph and the ease of checking out could explain this. "Educated: a Memoir" is a book that is popular both as a digital and a physical copy.
+For the third chart, I went ahead with a bar chart comparing the most checked-out digital/physical books in the time period considered. The data from this graph shows that four out of five of the most popular books are digital and only one is a physical copy. This small ratio in favor of physical books is slightly surprising, as the physical media dominated during the beginning of this time period.
+The reason why I added this chart to the report is because it is very important to the complete the report. Historically, libraries are known to be a home to books and I felt an analysis on a library without considering it's most popular books is incomplete.
+The trends in this chart also show a domination of the digital media and digital books as the four out of five most popular books are digital and the least popular book among them is physical. This like in previous charts, could be pointing to the covid era or to the technological advancement.
 
-``````{r, echo = FALSE, code = readLines("graph-three.R")}
+``````{r, echo = FALSE, code = readLines("graph-three.R"), warning = FALSE, message = FALSE}
 ```
 
 

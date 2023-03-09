@@ -10,7 +10,7 @@ most_popular_books <- most_popular_books[order(most_popular_books$Number_of_Chec
 top_5 <-  head(most_popular_books, 5)
 chart_three <- ggplot(data = top_5) +
   geom_col(mapping = aes(x = Title, y = Number_of_Checkouts, fill = UsageClass)) +
-    labs(title = "Most Checked out Digital/Physical Books from 2017-2023 in the Seattle Public Library", x = "Book Title", y = "Number of Checkouts", fill = "Book Type") +
-      scale_y_continuous(labels = label_number_si())
-chart_three <- chart_three + theme(plot.title = element_text(hjust = 0.5))
+    labs(title = "Most Checked out Digital/Physical Books", x = "Book Title", y = "Number of Checkouts", fill = "Book Type", subtitle = "Seattle Public Library (2017-2023)") +
+      scale_y_continuous(labels = label_number_si()) +
+        theme(axis.text.x = element_text(angle = 90, vjust = 0.5), plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
 chart_three
